@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Thiệp chúc mừng 20/10 · Ngày Phụ nữ Việt Nam</title>
+  <meta name="description" content="Nhập tên của bạn để mở một tấm thiệp chúc mừng Ngày Phụ nữ Việt Nam 20/10 dành riêng cho bạn. 🌸💖" />
+  <meta name="theme-color" content="#2a0a24" />
+
+  <!-- Open Graph: hiển thị đẹp khi chia sẻ qua Messenger / Zalo / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="💌 Bạn có một tấm thiệp 20/10!" />
+  <meta property="og:description" content="Nhập tên của bạn để mở thiệp chúc mừng Ngày Phụ nữ Việt Nam 20/10." />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+</head>
+<body>
+  <!-- ===== Nền động ===== -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="aurora aurora--1"></div>
+    <div class="aurora aurora--2"></div>
+    <div class="aurora aurora--3"></div>
+    <div class="backdrop__grain"></div>
+  </div>
+  <canvas id="petal-canvas" class="fx-canvas" aria-hidden="true"></canvas>
+  <canvas id="confetti-canvas" class="fx-canvas fx-canvas--top" aria-hidden="true"></canvas>
+
+  <!-- ===== Nút nhạc nền ===== -->
+  <button id="btn-music" class="music-toggle" type="button" aria-pressed="false" aria-label="Bật nhạc nền">
+    <span class="music-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="music-toggle__label">Nhạc</span>
+  </button>
+
+  <main class="app">
+    <!-- ===================== MÀN HÌNH NHẬP ===================== -->
+    <section id="screen-input" class="screen is-active" aria-labelledby="title-main">
+      <div class="glass input-card">
+        <span class="input-card__shine" aria-hidden="true"></span>
+
+        <p class="eyebrow">Happy Vietnamese Women's Day</p>
+        <h1 id="title-main" class="hero-title">
+          <span class="hero-title__num">20</span><span class="hero-title__sep">/</span><span class="hero-title__num">10</span>
+        </h1>
+        <p class="hero-script">Chào mừng Ngày Phụ nữ Việt Nam</p>
+
+        <p id="invite-hint" class="invite-hint" hidden>💌 Có người vừa gửi tặng bạn một tấm thiệp!</p>
+
+        <form id="greeting-form" class="form" novalidate autocomplete="off">
+          <div class="form__group">
+            <label for="input-name" class="field-label">Họ và tên của bạn</label>
+            <div class="field">
+              <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.2-8 5v1.5h16V19c0-2.8-3.6-5-8-5Z"/></svg>
+              <input id="input-name" name="fullName" type="text" inputmode="text" maxlength="60"
+                     placeholder="VD: Nguyễn Thị B" aria-describedby="name-hint name-error" required />
+            </div>
+            <p id="name-hint" class="field-hint">Nhập đầy đủ họ và tên để nhận lời chúc dành riêng cho bạn ✨</p>
+            <p id="name-error" class="field-error" role="alert" hidden>Vui lòng nhập đầy đủ họ và tên!</p>
+          </div>
+
+          <fieldset class="form__group gender">
+            <legend class="field-label">Giới tính</legend>
+            <div class="segmented">
+              <input type="radio" id="gender-female" name="gender" value="female" checked />
+              <label for="gender-female" class="segmented__option"><span aria-hidden="true">🌸</span> Nữ</label>
+              <input type="radio" id="gender-male" name="gender" value="male" />
+              <label for="gender-male" class="segmented__option"><span aria-hidden="true">😎</span> Nam</label>
+              <span class="segmented__thumb" aria-hidden="true"></span>
+            </div>
+          </fieldset>
+
+          <div class="form__actions">
+            <button id="btn-reset" type="button" class="btn btn--ghost">Nhập lại</button>
+            <button id="btn-submit" type="submit" class="btn btn--primary">
+              <span>Mở thiệp</span><span aria-hidden="true">💌</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <p class="credit">Made with <span aria-hidden="true">💖</span> for 20/10</p>
+    </section>
+
+    <!-- ===================== MÀN HÌNH THIỆP ===================== -->
+    <section id="screen-card" class="screen" aria-labelledby="card-name" aria-live="polite">
+      <article id="greeting-card" class="glass greeting-card" data-theme="female">
+        <div id="card-photo-bg" class="greeting-card__photo-bg" aria-hidden="true"></div>
+        <div class="greeting-card__veil" aria-hidden="true"></div>
+
+        <header class="greeting-card__toolbar">
+          <button id="btn-back" type="button" class="chip-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 4.5 8 12l7.5 7.5" /></svg>
+            Nhập lại
+          </button>
+          <button id="btn-share" type="button" class="chip-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
+            Chia sẻ
+          </button>
+        </header>
+
+        <div class="greeting-card__body">
+          <div class="avatar">
+            <span class="avatar__ring" aria-hidden="true"></span>
+            <div id="card-avatar" class="avatar__inner"></div>
+          </div>
+
+          <span id="card-badge" class="badge"></span>
+          <h2 id="card-name" class="card-name"></h2>
+
+          <div class="wish-box">
+            <p id="card-highlight" class="wish-box__highlight" hidden></p>
+            <p id="card-wish" class="wish-box__text"></p>
+          </div>
+
+          <p id="card-sign" class="card-sign"></p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- ===== Lớp chuyển cảnh mở phong bì ===== -->
+  <div id="envelope-overlay" class="envelope-overlay" hidden aria-hidden="true">
+    <div class="envelope">
+      <div class="envelope__back"></div>
+      <div class="envelope__letter"><span>Happy 20/10</span></div>
+      <div class="envelope__front"></div>
+      <div class="envelope__flap"></div>
+      <div class="envelope__seal">❤</div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="noscript">Vui lòng bật JavaScript để mở thiệp 💌</p></noscript>
+
+  <!-- Thứ tự quan trọng: config → hiệu ứng → app -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/petals.js" defer></script>
+  <script src="assets/js/confetti.js" defer></script>
+  <script src="assets/js/audio.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

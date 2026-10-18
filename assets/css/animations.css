@@ -1,0 +1,174 @@
+/* ==========================================================================
+   THIỆP 20/10 — KEYFRAMES & ANIMATION BINDINGS
+   ========================================================================== */
+
+/* ---------- Ambient ---------- */
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(8vmax, 6vmax) scale(1.12); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-7vmax, -5vmax) scale(1.08); }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.18; }
+  50% { transform: translate(-58%, -42%) scale(1.2); opacity: 0.3; }
+}
+.aurora--1 { animation: aurora-drift-1 18s ease-in-out infinite; }
+.aurora--2 { animation: aurora-drift-2 22s ease-in-out infinite; }
+.aurora--3 { animation: aurora-drift-3 26s ease-in-out infinite; }
+
+@keyframes text-shimmer {
+  to { background-position: 200% center; }
+}
+.hero-title { animation: text-shimmer 6s linear infinite; }
+
+@keyframes card-shine {
+  0%, 60% { background-position: 150% 0; }
+  100% { background-position: -100% 0; }
+}
+.input-card__shine { animation: card-shine 7s var(--ease-out) infinite; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.avatar__ring { animation: spin 6s linear infinite; }
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.18); }
+}
+.credit span { display: inline-block; animation: heartbeat 2.4s ease-in-out infinite; }
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ---------- Screen transitions ---------- */
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes screen-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(-16px) scale(0.97); }
+}
+.screen.is-entering { animation: screen-in 0.6s var(--ease-out) both; }
+.screen.is-leaving { animation: screen-out 0.38s ease-in both; }
+
+/* Input screen: các phần tử xuất hiện lần lượt */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+#screen-input.is-entering .eyebrow,
+#screen-input.is-entering .hero-title,
+#screen-input.is-entering .hero-script,
+#screen-input.is-entering .form__group,
+#screen-input.is-entering .form__actions {
+  animation: rise-in 0.7s var(--ease-out) both;
+}
+#screen-input.is-entering .hero-title { animation-name: rise-in, text-shimmer; animation-duration: 0.7s, 6s; animation-timing-function: var(--ease-out), linear; animation-iteration-count: 1, infinite; animation-delay: 0.08s, 0s; }
+#screen-input.is-entering .hero-script { animation-delay: 0.16s; }
+#screen-input.is-entering .form__group:nth-child(1) { animation-delay: 0.24s; }
+#screen-input.is-entering .form__group:nth-child(2) { animation-delay: 0.32s; }
+#screen-input.is-entering .form__actions { animation-delay: 0.4s; }
+
+/* ---------- Card reveal (lật thẻ) ---------- */
+@keyframes card-flip-in {
+  0% { opacity: 0; transform: perspective(1200px) rotateY(-75deg) translateY(30px) scale(0.86); }
+  60% { opacity: 1; transform: perspective(1200px) rotateY(8deg) scale(1.01); }
+  100% { opacity: 1; transform: perspective(1200px) rotateY(0) scale(1); }
+}
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.4); }
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#screen-card.is-entering { animation: none; }
+#screen-card.is-entering .greeting-card { animation: card-flip-in 1s var(--ease-out) both; transform-origin: center; }
+#screen-card.is-entering .greeting-card__toolbar { animation: fade-in 0.5s ease 0.6s both; }
+#screen-card.is-entering .avatar { animation: pop-in 0.7s var(--ease-spring) 0.35s both; }
+#screen-card.is-entering .badge { animation: fade-up 0.6s var(--ease-out) 0.55s both; }
+#screen-card.is-entering .card-name { animation: fade-up 0.6s var(--ease-out) 0.68s both; }
+#screen-card.is-entering .wish-box { animation: fade-up 0.6s var(--ease-out) 0.8s both; }
+
+.card-sign.is-visible { animation: fade-up 0.8s var(--ease-out) both; opacity: 1; }
+.avatar.is-floating { animation: float-soft 4s ease-in-out infinite; }
+
+/* ---------- Envelope sequence (≈2.2s) ---------- */
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes overlay-out { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+@keyframes envelope-pop {
+  0% { opacity: 0; transform: translateY(40px) scale(0.6) rotate(-6deg); }
+  70% { opacity: 1; transform: translateY(-4px) scale(1.04) rotate(1deg); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes seal-off {
+  to { opacity: 0; transform: scale(1.6); }
+}
+@keyframes flap-open {
+  0% { transform: rotateX(0); z-index: 3; }
+  49% { z-index: 3; }
+  50% { z-index: 0; }
+  100% { transform: rotateX(180deg); z-index: 0; }
+}
+@keyframes letter-rise {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-62%); }
+}
+@keyframes envelope-zoom {
+  to { transform: translateY(10px) scale(1.25); opacity: 0; }
+}
+
+.envelope-overlay.is-playing { animation: overlay-in 0.3s ease both, overlay-out 0.4s ease 1.85s both; }
+.envelope-overlay.is-playing .envelope { animation: envelope-pop 0.6s var(--ease-spring) both, envelope-zoom 0.45s ease-in 1.8s both; }
+.envelope-overlay.is-playing .envelope__seal { animation: seal-off 0.25s ease 0.65s both; }
+.envelope-overlay.is-playing .envelope__flap { animation: flap-open 0.55s var(--ease-out) 0.8s both; }
+.envelope-overlay.is-playing .envelope__letter { animation: letter-rise 0.6s var(--ease-out) 1.25s both; }
+
+/* ---------- Feedback ---------- */
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(3px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+.is-shaking { animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+
+@keyframes caret-blink { 50% { opacity: 0; } }
+.wish-box__text.is-typing::after { animation: caret-blink 0.9s steps(1) infinite; }
+
+@keyframes bar-dance {
+  0%, 100% { height: 4px; }
+  50% { height: 14px; }
+}
+.music-toggle[aria-pressed="true"] .music-toggle__bars i { animation: bar-dance 0.9s ease-in-out infinite; }
+.music-toggle[aria-pressed="true"] .music-toggle__bars i:nth-child(2) { animation-delay: -0.3s; }
+.music-toggle[aria-pressed="true"] .music-toggle__bars i:nth-child(3) { animation-delay: -0.6s; }
+.music-toggle[aria-pressed="true"] .music-toggle__bars i:nth-child(4) { animation-delay: -0.15s; }
+
+/* ---------- Giảm chuyển động cho người dùng nhạy cảm ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

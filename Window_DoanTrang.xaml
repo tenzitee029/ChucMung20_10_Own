@@ -34,7 +34,7 @@
                 <!-- 1. HÌNH NỀN PHÍA SAU (Dùng chính ảnh của bạn đó làm nền mờ) -->
                 <Border CornerRadius="28">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/trang.jpg" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="pack://application:,,,/Images/trang.jpg" Stretch="UniformToFill"/>
                     </Border.Background>
                     <Border.Effect>
                         <BlurEffect Radius="18"/>
@@ -76,7 +76,7 @@
                             </Border.Effect>
                             <Border.Background>
                                 <!-- ĐỔI ẢNH AVATAR TẠI ĐÂY -->
-                                <ImageBrush ImageSource="/Images/trang.jpg" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="pack://application:,,,/Images/trang.jpg" Stretch="UniformToFill"/>
                             </Border.Background>
                         </Border>
 

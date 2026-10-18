@@ -30,7 +30,6 @@
                 <DropShadowEffect BlurRadius="28" ShadowDepth="6" Opacity="0.28" Color="#D81B60"/>
             </Border.Effect>
 
-            <!-- Nền Gradient sang trọng (Không dùng ảnh Avatar) -->
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#EC407A" Offset="0"/>
@@ -40,7 +39,6 @@
             </Border.Background>
 
             <Grid ClipToBounds="True">
-                <!-- Lớp cánh hoa rơi -->
                 <Canvas x:Name="ParticleCanvas" IsHitTestVisible="False" ClipToBounds="True"/>
 
                 <Grid Margin="24">
@@ -54,7 +52,6 @@
                         </Button.Resources>
                     </Button>
 
-                    <!-- Nội dung căn giữa, KHÔNG HIỆN AVATAR -->
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="💐" FontSize="56" HorizontalAlignment="Center" Margin="0,0,0,16"/>
 
@@ -62,7 +59,6 @@
                             <TextBlock Text="HAPPY VIETNAMESE WOMEN'S DAY 20/10" Foreground="White" FontSize="11" FontWeight="Bold"/>
                         </Border>
 
-                        <!-- Tên người vừa nhập -->
                         <TextBlock x:Name="txtRecipientName" Text="Thân gửi bạn" FontSize="26" FontWeight="Bold" 
                                    Foreground="White" TextAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,18">
                             <TextBlock.Effect>
@@ -70,7 +66,6 @@
                             </TextBlock.Effect>
                         </TextBlock>
 
-                        <!-- CÂU CHÚC CHUNG CHO CÁC BẠN NỮ NGOÀI DANH SÁCH -->
                         <Border Background="#35FFFFFF" BorderBrush="#77FFFFFF" BorderThickness="1.2" CornerRadius="20" Padding="20">
                             <TextBlock Text="Nhân ngày Phụ nữ Việt Nam 20/10, xin gửi đến bạn những lời chúc tốt đẹp và chân thành nhất! Chúc bạn luôn xinh đẹp rạng ngời, ngập tràn niềm vui, hạnh phúc và gặt hái được thật nhiều thành công trong cuộc sống! 🌸💖" 
                                        FontSize="15.5" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" LineHeight="24" FontWeight="Medium"/>

@@ -31,17 +31,15 @@
             </Border.Effect>
 
             <Grid ClipToBounds="True">
-                <!-- 1. HÌNH NỀN PHÍA SAU (Dùng chính ảnh của bạn đó làm nền mờ) -->
                 <Border CornerRadius="28">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/bang.jpg" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="pack://application:,,,/Images/bang.jpg" Stretch="UniformToFill"/>
                     </Border.Background>
                     <Border.Effect>
                         <BlurEffect Radius="18"/>
                     </Border.Effect>
                 </Border>
 
-                <!-- 2. Lớp phủ Gradient làm nổi bật Avatar và Chữ -->
                 <Border CornerRadius="28">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -52,10 +50,8 @@
                     </Border.Background>
                 </Border>
 
-                <!-- 3. Lớp cánh hoa rơi -->
                 <Canvas x:Name="ParticleCanvas" IsHitTestVisible="False" ClipToBounds="True"/>
 
-                <!-- 4. Nội dung chính: Avatar + Tên + Lời chúc -->
                 <Grid Margin="24">
                     <Button Content="← Nhập lại" HorizontalAlignment="Left" VerticalAlignment="Top"
                             Background="#55000000" Foreground="White" BorderThickness="0"
@@ -68,15 +64,13 @@
                     </Button>
 
                     <StackPanel VerticalAlignment="Center" Margin="0,25,0,0">
-                        <!-- KHUNG AVATAR TRÒN -->
                         <Border Width="155" Height="155" CornerRadius="80" BorderBrush="White" BorderThickness="4" 
                                 HorizontalAlignment="Center" Margin="0,0,0,18">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="20" ShadowDepth="4" Opacity="0.45" Color="Black"/>
                             </Border.Effect>
                             <Border.Background>
-                                <!-- ĐỔI ẢNH AVATAR TẠI ĐÂY -->
-                                <ImageBrush ImageSource="/Images/bang.jpg" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="pack://application:,,,/Images/bang.jpg" Stretch="UniformToFill"/>
                             </Border.Background>
                         </Border>
 
@@ -84,7 +78,6 @@
                             <TextBlock Text="🌸 HAPPY WOMEN'S DAY 20/10" Foreground="White" FontSize="11" FontWeight="Bold"/>
                         </Border>
 
-                        <!-- HỌ VÀ TÊN NGƯỜI NHẬN -->
                         <TextBlock Text="Lê Nguyễn Khánh Băng" FontSize="25" FontWeight="Bold" Foreground="White" 
                                    TextAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,16">
                             <TextBlock.Effect>
@@ -92,7 +85,6 @@
                             </TextBlock.Effect>
                         </TextBlock>
 
-                        <!-- CÂU CHÚC RIÊNG -->
                         <Border Background="#38FFFFFF" BorderBrush="#77FFFFFF" BorderThickness="1.2" CornerRadius="20" Padding="18">
                             <TextBlock Text="Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn Băng luôn xinh đẹp, luôn vui, luôn cười. Chúc bạn Băng luôn năng lượng, học tập tốt và chúc bạn có những người bạn ĐÀNG HOÀNG nhé! 💖" 
                                        FontSize="15" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" LineHeight="23" FontWeight="Medium"/>

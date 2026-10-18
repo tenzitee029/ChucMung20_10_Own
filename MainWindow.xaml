@@ -74,9 +74,10 @@
 
                     <!-- 1. Nhập Họ và Tên -->
                     <TextBlock Text="Nhập Họ và Tên của bạn:" FontSize="14" FontWeight="SemiBold" Foreground="#AD1457" Margin="4,0,0,8"/>
-                    <Border Background="White" CornerRadius="16" BorderBrush="#F48FB1" BorderThickness="1.5" Padding="14,10" Margin="0,0,0,20">
+                    <Border Background="White" CornerRadius="16" BorderBrush="#F48FB1" BorderThickness="1.5" Padding="14,10" Margin="0,0,0,4">
                         <TextBox x:Name="txtFullName" FontSize="16" BorderThickness="0" Background="Transparent" Foreground="#333" VerticalContentAlignment="Center" KeyDown="TxtFullName_KeyDown"/>
                     </Border>
+                    <TextBlock Text="Nhập đầy đủ Họ và Tên, In hoa chữ cái đầu. VD: Nguyễn Thị B " FontSize="10" FontWeight="Regular" FontStyle="Italic" Foreground="#333" Margin="15,0,0,20"/>
 
                     <!-- 2. Chọn Giới tính (Nữ / Nam) -->
                     <TextBlock Text="Chọn giới tính:" FontSize="14" FontWeight="SemiBold" Foreground="#AD1457" Margin="4,0,0,8"/>

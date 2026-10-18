@@ -1,0 +1,83 @@
+﻿<Window x:Class="ChucMung20_10.Window_NuKhac"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10" Height="740" Width="430"
+        WindowStartupLocation="CenterScreen" Background="#FFF0F5"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Storyboard x:Key="OpenCardAnim">
+            <DoubleAnimation Storyboard.TargetName="MainCard" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.6"/>
+            <DoubleAnimation Storyboard.TargetName="CardScale" Storyboard.TargetProperty="ScaleX" From="0.86" To="1" Duration="0:0:0.6">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="CardScale" Storyboard.TargetProperty="ScaleY" From="0.86" To="1" Duration="0:0:0.6">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid Margin="16">
+        <Border x:Name="MainCard" CornerRadius="28" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <ScaleTransform x:Name="CardScale" ScaleX="1" ScaleY="1"/>
+            </Border.RenderTransform>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="28" ShadowDepth="6" Opacity="0.28" Color="#D81B60"/>
+            </Border.Effect>
+
+            <!-- Nền Gradient sang trọng (Không dùng ảnh Avatar) -->
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#EC407A" Offset="0"/>
+                    <GradientStop Color="#AD1457" Offset="0.5"/>
+                    <GradientStop Color="#4A148C" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid ClipToBounds="True">
+                <!-- Lớp cánh hoa rơi -->
+                <Canvas x:Name="ParticleCanvas" IsHitTestVisible="False" ClipToBounds="True"/>
+
+                <Grid Margin="24">
+                    <Button Content="← Nhập lại" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Background="#44000000" Foreground="White" BorderThickness="0"
+                            Padding="16,8" Cursor="Hand" FontWeight="SemiBold" Click="BtnBack_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="16"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <!-- Nội dung căn giữa, KHÔNG HIỆN AVATAR -->
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="💐" FontSize="56" HorizontalAlignment="Center" Margin="0,0,0,16"/>
+
+                        <Border Background="#CCFF4081" CornerRadius="12" Padding="12,5" HorizontalAlignment="Center" Margin="0,0,0,12">
+                            <TextBlock Text="HAPPY VIETNAMESE WOMEN'S DAY 20/10" Foreground="White" FontSize="11" FontWeight="Bold"/>
+                        </Border>
+
+                        <!-- Tên người vừa nhập -->
+                        <TextBlock x:Name="txtRecipientName" Text="Thân gửi bạn" FontSize="26" FontWeight="Bold" 
+                                   Foreground="White" TextAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,18">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.5"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <!-- CÂU CHÚC CHUNG CHO CÁC BẠN NỮ NGOÀI DANH SÁCH -->
+                        <Border Background="#35FFFFFF" BorderBrush="#77FFFFFF" BorderThickness="1.2" CornerRadius="20" Padding="20">
+                            <TextBlock Text="Nhân ngày Phụ nữ Việt Nam 20/10, xin gửi đến bạn những lời chúc tốt đẹp và chân thành nhất! Chúc bạn luôn xinh đẹp rạng ngời, ngập tràn niềm vui, hạnh phúc và gặt hái được thật nhiều thành công trong cuộc sống! 🌸💖" 
+                                       FontSize="15.5" Foreground="White" TextAlignment="Center" TextWrapping="Wrap" LineHeight="24" FontWeight="Medium"/>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

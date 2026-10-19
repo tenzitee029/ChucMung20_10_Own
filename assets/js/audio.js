@@ -185,15 +185,24 @@
         this.toggle();
       });
 
-      // Bắt đầu nhạc ở lần tương tác đầu tiên (chính sách autoplay)
-      const kickoff = (e) => {
-        if (this.button && this.button.contains(e.target)) return;
-        if (localStorage.getItem(STORAGE_KEY) !== "1") this.play();
-        window.removeEventListener("pointerdown", kickoff, true);
-        window.removeEventListener("keydown", kickoff, true);
+      // 1. Thử tự động phát ngay lập tức khi tải trang
+      this.play().catch(() => {});
+
+      // 2. Dự phòng: Nếu trình duyệt chặn, kích hoạt ngay ở bất kỳ cử động đầu tiên nào (rê chuột, chạm, cuộn, gõ phím)
+      const autoEvents = ["pointerdown", "touchstart", "scroll", "keydown", "mousemove", "click"];
+      const kickoff = () => {
+        if (!this.playing) {
+          this.play().then(() => {
+            autoEvents.forEach((ev) => window.removeEventListener(ev, kickoff, { passive: true }));
+          }).catch(() => {});
+        } else {
+          autoEvents.forEach((ev) => window.removeEventListener(ev, kickoff, { passive: true }));
+        }
       };
-      window.addEventListener("pointerdown", kickoff, true);
-      window.addEventListener("keydown", kickoff, true);
+
+      autoEvents.forEach((ev) => {
+        window.addEventListener(ev, kickoff, { passive: true, once: false });
+      });
 
       document.addEventListener("visibilitychange", () => {
         if (document.hidden && this.playing) {
@@ -208,9 +217,9 @@
       try {
         await this.engine.play(this.volume);
         this.playing = true;
-        localStorage.setItem(STORAGE_KEY, "0");
       } catch (e) {
         this.playing = false;
+        throw e;
       }
       this.render();
     },

@@ -17,8 +17,8 @@ window.APP_CONFIG = Object.freeze({
    *  - Hoặc đặt file vào assets/audio/ rồi điền: src: "assets/audio/background.mp3"
    */
   music: {
-    src: "",
-    volume: 0.5,
+    src: "assets/audio/romantic-piano.mp3",
+    volume: 0.8,
   },
 
   /** Những người bạn đặc biệt – có ảnh & lời chúc riêng */
@@ -50,6 +50,27 @@ window.APP_CONFIG = Object.freeze({
       badge: "🌸 Happy Women's Day 20/10",
       wish:
         "Nhân ngày Phụ nữ Việt Nam 20/10, chúc Don Chan luôn vui vẻ, luôn cười. Chúc mày luôn năng lượng và sáng tạo, chúc bạn của toi bớt stress vì deadline UTE, có những giấc ngủ ngon và đủ nha 💖",
+    },
+    {
+      fullName: "Trần Triệu Thiên Tú",
+      avatar: "assets/images/tu.jpg",
+      badge: "🌸 Happy Women's Day 20/10",
+      wish:
+        "Chuc di Tenzi",
+    },
+    {
+      fullName: "Cao Như Ngọc", 
+      avatar: "assets/images/ngoc.jpg",
+      badge: "🌸 Happy Women's Day 20/10",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn Ngọc luôn xinh đẹp, cười càng ngày càng to, thiết kế càng ngày càng đẹp. Chúc ní luôn tràn đầy năng lượng, học tập tốt và mọi dự định sắp tới đều thành công 💖",
+    },
+    {
+      fullName: "Trương Ngọc Gia Hân",
+      avatar: "assets/images/han.jpg",
+      badge: "🌸 Happy Women's Day 20/10",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn Hân luôn xinh đẹp, luôn vui vẻ, ý tưởng dạt dào, deadline thong thả, thầy cô nhẹ tay. ngập tràn yêu thương!. Chúc mày sẽ thành công trên con đường học tập cũng như các dự định sắp tới nhen💖",
     },
   ],
 

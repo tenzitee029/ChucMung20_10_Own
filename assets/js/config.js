@@ -58,8 +58,29 @@ window.APP_CONFIG = Object.freeze({
     emoji: "💐",
     badge: "Happy Vietnamese Women's Day 20/10",
     greeting: "Thân gửi {name}",
-    wish:
-      "Nhân ngày Phụ nữ Việt Nam 20/10, xin gửi đến bạn những lời chúc tốt đẹp và chân thành nhất! Chúc bạn luôn xinh đẹp rạng ngời, ngập tràn niềm vui, hạnh phúc và gặt hái được thật nhiều thành công trong cuộc sống! 🌸💖",
+    /** Mỗi lần mở thiệp sẽ chọn ngẫu nhiên 1 câu. Có thể thêm/bớt tùy ý. */
+    wishes: [
+      // 1. Ngọt ngào, yêu đời
+      "Nhân ngày 20/10, chúc {name} luôn rạng ngời như nắng sớm, nụ cười lúc nào cũng tỏa sáng và mỗi ngày đều có thật nhiều lý do để mỉm cười nhé! 🌸",
+      // 2. Thành công, bản lĩnh
+      "Chúc {name} một 20/10 thật rực rỡ! Mong bạn luôn tự tin, bản lĩnh, vững vàng trên con đường mình chọn và chạm tới mọi mục tiêu đã đặt ra. 💼✨",
+      // 3. Bình yên, thư thả
+      "20/10 này, chúc {name} ít deadline hơn một chút, ngủ ngon hơn một chút, và tâm hồn lúc nào cũng nhẹ nhàng, an yên giữa những bộn bề. 🍃",
+      // 4. Hạnh phúc, viên mãn
+      "Chúc {name} luôn được bao bọc bởi những người thật lòng thương mình, được yêu thương trọn vẹn và hạnh phúc theo cách mà bạn xứng đáng nhận được. 💖",
+      // 5. Năng lượng, tích cực
+      "Chúc {name} một ngày 20/10 tràn đầy năng lượng! Mong mỗi ngày của bạn đều có một niềm vui nhỏ bất ngờ, đủ để thấy cuộc sống này thật đáng yêu. ☀️",
+      // 6. Sức khỏe, sắc đẹp
+      "Nhân ngày Phụ nữ Việt Nam, chúc {name} nhan sắc ngày càng thăng hạng, sức khỏe dồi dào và lúc nào cũng tươi tắn, rạng rỡ như hôm nay. 🌷",
+      // 7. Truyền cảm hứng
+      "Gửi {name}: bạn là phiên bản duy nhất và đặc biệt. Chúc bạn luôn tự tin vào vẻ đẹp riêng của mình và tiếp tục truyền cảm hứng cho những người xung quanh. 🌟",
+      // 8. Hài hước, gần gũi
+      "20/10 vui vẻ nha {name}! Chúc bạn ăn hoài không béo, ví lúc nào cũng dày, crush tự động nhắn tin và lòng chẳng vướng bận điều gì. 😆💸",
+      // 9. Chân thành, ấm áp
+      "Cảm ơn {name} vì những điều tốt đẹp và cả những cố gắng thầm lặng mà bạn đã mang lại. Chúc bạn một 20/10 thật ấm áp và luôn được trân trọng. 💐",
+      // 10. Trọn vẹn
+      "Chúc {name} một ngày 20/10 trọn vẹn: may mắn đến gõ cửa, thành công theo sát bên, niềm vui ngập tràn và vạn sự như ý! 🎀",
+    ],
   },
 
   /** Các bạn nam */

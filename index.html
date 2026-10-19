@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Dancing+Script:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/animations.css" />
@@ -29,6 +29,79 @@
     <div class="aurora aurora--2"></div>
     <div class="aurora aurora--3"></div>
     <div class="backdrop__grain"></div>
+  </div>
+
+  <!-- ===== Trang trí cho màn hình rộng (ẩn trên điện thoại) ===== -->
+  <div class="desk-decor" aria-hidden="true">
+    <div class="depth-bg"></div>
+    <div class="desk-decor__frame"></div>
+    <span class="bokeh" style="--x:8%;--y:18%;--s:120px;--d:0s"></span>
+    <span class="bokeh" style="--x:16%;--y:72%;--s:70px;--d:-3s"></span>
+    <span class="bokeh" style="--x:4%;--y:48%;--s:40px;--d:-6s"></span>
+    <span class="bokeh bokeh--gold" style="--x:22%;--y:36%;--s:28px;--d:-2s"></span>
+    <span class="bokeh" style="--x:88%;--y:22%;--s:90px;--d:-4s"></span>
+    <span class="bokeh bokeh--gold" style="--x:80%;--y:64%;--s:46px;--d:-1s"></span>
+    <span class="bokeh" style="--x:94%;--y:82%;--s:130px;--d:-5s"></span>
+    <span class="bokeh bokeh--gold" style="--x:74%;--y:12%;--s:22px;--d:-7s"></span>
+    <p class="desk-quote desk-quote--left">“Phụ nữ là để<br />yêu thương”</p>
+    <p class="desk-quote desk-quote--right">20 · 10<br /><span>Vietnamese Women's Day</span></p>
+
+    <!-- Cánh trái: hộp quà 3D, tinh thể, thẻ mica -->
+    <div class="scene scene--left">
+      <div class="scene__stage">
+        <div class="gift">
+          <span class="gift__face gift__face--front"></span>
+          <span class="gift__face gift__face--back"></span>
+          <span class="gift__face gift__face--right"></span>
+          <span class="gift__face gift__face--left"></span>
+          <span class="gift__face gift__face--top"></span>
+          <span class="gift__face gift__face--bottom"></span>
+          <span class="gift__bow"></span>
+          <span class="gift__bow gift__bow--cross"></span>
+        </div>
+        <span class="gift-shadow"></span>
+        <span class="crystal" style="--x:10%;--y:6%;--w:9cqw;--d:0s"></span>
+        <span class="crystal crystal--gold" style="--x:80%;--y:12%;--w:7cqw;--d:-2s"></span>
+        <span class="crystal" style="--x:78%;--y:50%;--w:11cqw;--d:-4s"></span>
+        <span class="crystal crystal--gold" style="--x:6%;--y:56%;--w:6cqw;--d:-1s"></span>
+        <div class="acrylic">
+          <span class="acrylic__num">20 · 10</span>
+          <span class="acrylic__text">Tôn vinh nét đẹp phái nữ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cánh phải: đĩa than, nốt nhạc, bong bóng -->
+    <div class="scene scene--right">
+      <div class="scene__stage">
+        <div class="vinyl-wrap">
+          <div class="vinyl"></div>
+          <span class="vinyl-arm"></span>
+        </div>
+        <span class="note" style="--x:16%;--d:0s;--fs:2.2rem">♪</span>
+        <span class="note" style="--x:62%;--d:-2.4s;--fs:1.7rem">♫</span>
+        <span class="note" style="--x:38%;--d:-4.8s;--fs:2.6rem">♪</span>
+        <span class="note note--gold" style="--x:80%;--d:-1.2s;--fs:1.5rem">♬</span>
+        <span class="bubble" style="--x:8%;--s:22px;--d:0s"></span>
+        <span class="bubble" style="--x:30%;--s:14px;--d:-3s"></span>
+        <span class="bubble" style="--x:56%;--s:28px;--d:-5.5s"></span>
+        <span class="bubble" style="--x:78%;--s:16px;--d:-1.5s"></span>
+        <span class="bubble" style="--x:44%;--s:10px;--d:-7s"></span>
+        <div class="acrylic acrylic--right">
+          <span class="acrylic__text">♪ Giai điệu 20/10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tiền cảnh: cánh hoa & bụi sáng mờ sát "ống kính" (chỉ desktop) -->
+  <div class="depth-fg" aria-hidden="true">
+    <span class="fg-item fg-petal" style="--x:-3%;--y:-6%;--s:150px;--r:20deg;--d:0s"></span>
+    <span class="fg-item fg-petal" style="--x:90%;--y:78%;--s:180px;--r:-140deg;--d:-6s"></span>
+    <span class="fg-item fg-petal" style="--x:94%;--y:-4%;--s:90px;--r:110deg;--d:-3s;--b:4px"></span>
+    <span class="fg-item fg-petal" style="--x:-2%;--y:84%;--s:110px;--r:-40deg;--d:-9s;--b:5px"></span>
+    <span class="fg-item fg-dust" style="--x:30%;--y:88%;--s:60px;--d:-2s"></span>
+    <span class="fg-item fg-dust" style="--x:68%;--y:4%;--s:44px;--d:-7s"></span>
   </div>
   <canvas id="petal-canvas" class="fx-canvas" aria-hidden="true"></canvas>
   <canvas id="confetti-canvas" class="fx-canvas fx-canvas--top" aria-hidden="true"></canvas>
@@ -93,6 +166,7 @@
       <article id="greeting-card" class="glass greeting-card" data-theme="female">
         <div id="card-photo-bg" class="greeting-card__photo-bg" aria-hidden="true"></div>
         <div class="greeting-card__veil" aria-hidden="true"></div>
+        <div class="card-glare" aria-hidden="true"></div>
 
         <header class="greeting-card__toolbar">
           <button id="btn-back" type="button" class="chip-btn">
@@ -106,20 +180,26 @@
         </header>
 
         <div class="greeting-card__body">
-          <div class="avatar">
-            <span class="avatar__ring" aria-hidden="true"></span>
-            <div id="card-avatar" class="avatar__inner"></div>
+          <div class="card-panel card-panel--hero">
+            <div class="avatar">
+              <span class="avatar__ring" aria-hidden="true"></span>
+              <div id="card-avatar" class="avatar__inner"></div>
+            </div>
+
+            <span id="card-badge" class="badge"></span>
+            <h2 id="card-name" class="card-name"></h2>
+            <p class="card-date" aria-hidden="true"><span></span>20 · 10<span></span></p>
           </div>
 
-          <span id="card-badge" class="badge"></span>
-          <h2 id="card-name" class="card-name"></h2>
+          <div class="card-panel card-panel--message">
+            <p class="card-panel__eyebrow" aria-hidden="true">Lời chúc gửi bạn</p>
+            <div class="wish-box">
+              <p id="card-highlight" class="wish-box__highlight" hidden></p>
+              <p id="card-wish" class="wish-box__text"></p>
+            </div>
 
-          <div class="wish-box">
-            <p id="card-highlight" class="wish-box__highlight" hidden></p>
-            <p id="card-wish" class="wish-box__text"></p>
+            <p id="card-sign" class="card-sign"></p>
           </div>
-
-          <p id="card-sign" class="card-sign"></p>
         </div>
       </article>
     </section>

@@ -75,9 +75,22 @@
       emoji: f.emoji,
       badge: f.badge,
       title: fill(f.greeting, display),
-      wish: fill(f.wish, display),
+      wish: fill(pickRandomWish(f), display),
       celebrate: true,
     };
+  }
+
+  /** Chọn ngẫu nhiên 1 lời chúc, tránh trùng với câu vừa hiện lần trước */
+  let lastWishIndex = -1;
+  function pickRandomWish(f) {
+    const list = Array.isArray(f.wishes) && f.wishes.length ? f.wishes : [f.wish || ""];
+    if (list.length === 1) return list[0];
+    let i;
+    do {
+      i = Math.floor(Math.random() * list.length);
+    } while (i === lastWishIndex);
+    lastWishIndex = i;
+    return list[i];
   }
 
   /* ------------------------------------------------------------------
@@ -411,6 +424,70 @@
     });
   }
 
+  /* ------------------------------------------------------------------
+   * Desktop 3D: nghiêng thiệp + parallax theo chuột
+   * Ghi biến CSS --px/--py (-1..1) lên <html>; CSS lo phần hiển thị.
+   * ------------------------------------------------------------------ */
+  function setupDepth() {
+    const mq = window.matchMedia("(min-width: 992px) and (hover: hover) and (pointer: fine)");
+    const root = document.documentElement;
+    const EASE = 0.08;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    let raf = 0;
+    let active = false;
+
+    const tick = () => {
+      cx += (tx - cx) * EASE;
+      cy += (ty - cy) * EASE;
+      root.style.setProperty("--px", cx.toFixed(4));
+      root.style.setProperty("--py", cy.toFixed(4));
+      // Dừng vòng lặp khi đã đến đích → không tốn CPU lúc chuột đứng yên
+      raf = Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001 ? requestAnimationFrame(tick) : 0;
+    };
+    const kick = () => {
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    const onMove = (e) => {
+      tx = (e.clientX / window.innerWidth) * 2 - 1;
+      ty = (e.clientY / window.innerHeight) * 2 - 1;
+      if (el.screenCard.classList.contains("is-active")) {
+        const r = el.card.getBoundingClientRect();
+        el.card.style.setProperty("--gx", `${(((e.clientX - r.left) / r.width) * 100).toFixed(1)}%`);
+        el.card.style.setProperty("--gy", `${(((e.clientY - r.top) / r.height) * 100).toFixed(1)}%`);
+      }
+      kick();
+    };
+    const onLeave = () => {
+      tx = 0;
+      ty = 0;
+      kick();
+    };
+
+    const apply = () => {
+      const on = mq.matches && !reduceMotion();
+      if (on === active) return;
+      active = on;
+      root.classList.toggle("fx-3d", on);
+      if (on) {
+        window.addEventListener("pointermove", onMove, { passive: true });
+        document.documentElement.addEventListener("mouseleave", onLeave);
+      } else {
+        window.removeEventListener("pointermove", onMove);
+        document.documentElement.removeEventListener("mouseleave", onLeave);
+        cancelAnimationFrame(raf);
+        raf = 0;
+        tx = ty = cx = cy = 0;
+        root.style.removeProperty("--px");
+        root.style.removeProperty("--py");
+      }
+    };
+
+    mq.addEventListener?.("change", apply);
+    window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener?.("change", apply);
+    apply();
+  }
+
   function init() {
     if (!CONFIG) {
       console.error("Thiếu assets/js/config.js");
@@ -422,6 +499,7 @@
 
     bindEvents();
     prefillFromUrl();
+    setupDepth();
 
     // Preload ảnh avatar khi trình duyệt rảnh
     const preload = () => CONFIG.special.forEach((p) => (new Image().src = p.avatar));

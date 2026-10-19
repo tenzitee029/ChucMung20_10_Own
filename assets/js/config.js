@@ -70,7 +70,21 @@ window.APP_CONFIG = Object.freeze({
       avatar: "assets/images/han.jpg",
       badge: "🌸 Happy Women's Day 20/10",
       wish:
-        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn Hân luôn xinh đẹp, luôn vui vẻ, ý tưởng dạt dào, deadline thong thả, thầy cô nhẹ tay. ngập tràn yêu thương!. Chúc mày sẽ thành công trên con đường học tập cũng như các dự định sắp tới nhen💖",
+        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn Hân luôn xinh đẹp, luôn vui vẻ, ý tưởng dạt dào, deadline thong thả, thầy cô nhẹ tay. ngập tràn yêu thương!. Chúc bà sẽ thành công trên con đường học tập cũng như các dự định sắp tới nhen💖",
+    },
+    {
+      fullName: "Võ Nguyễn Minh Tuyền",
+      avatar: "assets/images/tuyen.jpg",
+      badge: "🌸 Happy Women's Day 20/10",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc Minh Tuyền luôn xinh đẹp, luôn vui vẻ, từ giờ tới ra trường kì này cũng lấy học bổng nhen, hạnh phúc lâu dài với người ấy nhé. Chúc bạn của tui sẽ thành công trên con đường học tập cũng như các dự định sắp tới nhen💖",
+    },
+    {
+      fullName: "Đặng Ngọc Khánh Vân",
+      avatar: "assets/images/van.jpg",
+      badge: "🌸 Happy Women's Day 20/10",
+      wish:
+        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn Vân luôn xinh đẹp, luôn vui vẻ, ý tưởng dạt dào, deadline thong thả, thầy cô nhẹ tay. Chúc cho mọi việc bà đang làm hay dự định trong tương lai đều diễn ra suôn sẻ và thành công nha💖",
     },
   ],
 

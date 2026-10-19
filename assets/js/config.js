@@ -56,7 +56,7 @@ window.APP_CONFIG = Object.freeze({
       avatar: "assets/images/tu.jpg",
       badge: "🌸 Happy Women's Day 20/10",
       wish:
-        "Chuc di Tenzi",
+        "Nhân ngày Phụ nữ Việt Nam 20/10, chúc cho Thiên Tú luôn luôn vui vẻ, cười nhiều với càng ngày càng xinh. Nhớ giữ gìn sức khỏe, học tốt, chúc cho mọi việc mày đang làm hay dự định trong tương lai đều diễn ra suôn sẻ và thành công nha 💖",
     },
     {
       fullName: "Cao Như Ngọc", 
